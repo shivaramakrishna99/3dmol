@@ -13,18 +13,18 @@ import py3Dmol
 
 @large_task
 def _3dmol_task(
-    mol: Union[LatchFile, str]
+    mol: Union[LatchFile, str],
 ) -> LatchFile:
 
     _3dmol_frame = f'''
-    <script src="https://3Dmol.org/build/3Dmol-min.js" async></script>     
-    <div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-pdb='2POR' data-backgroundcolor='0xffffff' data-style='stick' data-ui='true'></div>       
+     <script src="https://3Dmol.org/build/3Dmol-min.js" async></script>     
+    <div style="height: 100%; width: 400px; position: relative;" class='viewer_3Dmoljs' data-pdb='1YCR' 
+    data-select1='chain:A' data-style1='cartoon:color=spectrum' data-surface1='opacity:.7;color:white' data-select2='chain:B' data-style2='stick'></div>       
     '''
     view = 'view.html'
     with open(view, 'w') as f:
         f.write(_3dmol_frame)
     
-    view = py3Dmol.view(query='pdb:1ubq') view.setStyle({'cartoon':{'color':'spectrum'}}) view
     return LatchFile(view, f"latch:///3Dmol/{mol}.html")
 
 
@@ -44,6 +44,10 @@ metadata = LatchMetadata(
             display_name="Molecule",
             description="Enter PDB ID, upload a file, or provide a URL",
         ),
+        "a": LatchParameter(
+            display_name="List",
+            description="List desc"
+        )
 
     },
     tags=[
@@ -54,7 +58,7 @@ metadata = LatchMetadata(
 
 @workflow(metadata)
 def _3dmol_wf(
-    mol: Union[LatchFile, str]
+    mol: Union[LatchFile, str],
 ) -> LatchFile:
     """3dmol DESCRIPTION
     LONG DESC
@@ -70,7 +74,7 @@ the parameter names as the keys. These default values will be available under
 the 'Test Data' dropdown at console.latch.bio.
 """
 # LaunchPlan(
-#     assemble_and_sort,
+#     _3dmol_wf,
 #     "Test Data",
 #     {
 #         "read1": LatchFile("s3://latch-public/init/r1.fastq"),
