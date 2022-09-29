@@ -1,0 +1,897 @@
+Step 1/6 : FROM 812206152185.dkr.ecr.us-west-2.amazonaws.com/latch-base:6839-main
+
+
+ ---> 12b193ffea17
+
+Step 2/6 : RUN python3 -m pip install --upgrade latch
+
+
+ ---> [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+ ---> Running in 3ee4c5085c2c
+
+Collecting latch
+
+  Downloading latch-2.1.1-py3-none-any.whl (90 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.8/90.8 KB 1.4 MB/s eta 0:00:00
+
+
+Collecting pyjwt>=0.2.0
+
+  Downloading PyJWT-2.5.0-py3-none-any.whl (20 kB)
+
+Collecting typing-extensions==4.3.0
+
+  Downloading typing_extensions-4.3.0-py3-none-any.whl (25 kB)
+
+Collecting scp>=0.14.0
+
+  Downloading scp-0.14.4-py2.py3-none-any.whl (8.6 kB)
+
+Collecting tqdm>=4.63.0
+
+  Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting awscli==1.25.22
+
+  Downloading awscli-1.25.22-py3-none-any.whl (3.9 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 1.1 MB/s eta 0:00:00
+
+
+Collecting lytekit==0.4.0
+
+  Downloading lytekit-0.4.0-py3-none-any.whl (388 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 388.5/388.5 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting click>=8.0
+
+  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting docker>=5.0
+
+  Downloading docker-6.0.0-py3-none-any.whl (147 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 147.2/147.2 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting apscheduler==3.9.1
+
+  Downloading APScheduler-3.9.1-py2.py3-none-any.whl (59 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting kubernetes>=24.2.0
+
+  Downloading kubernetes-24.2.0-py2.py3-none-any.whl (1.5 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 1.1 MB/s eta 0:00:00
+
+
+Requirement already satisfied: boto3>=1.24.22 in /usr/local/lib/python3.9/site-packages (from latch) (1.24.26)
+
+Collecting paramiko>=2.11.0
+
+  Downloading paramiko-2.11.0-py2.py3-none-any.whl (212 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 212.9/212.9 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting requests>=2.0
+
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting lytekitplugins-pods==0.3.1
+
+  Downloading lytekitplugins_pods-0.3.1-py3-none-any.whl (4.3 kB)
+
+Collecting pytz
+
+  Downloading pytz-2022.2.1-py2.py3-none-any.whl (500 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 500.6/500.6 KB 1.0 MB/s eta 0:00:00
+
+
+Collecting tzlocal!=3.*,>=2.0
+
+  Downloading tzlocal-4.2-py3-none-any.whl (19 kB)
+
+Requirement already satisfied: setuptools>=0.7 in /usr/local/lib/python3.9/site-packages (from apscheduler==3.9.1->latch) (58.1.0)
+
+Requirement already satisfied: six>=1.4.0 in /usr/local/lib/python3.9/site-packages (from apscheduler==3.9.1->latch) (1.16.0)
+
+Requirement already satisfied: s3transfer<0.7.0,>=0.6.0 in /usr/local/lib/python3.9/site-packages (from awscli==1.25.22->latch) (0.6.0)
+
+Requirement already satisfied: PyYAML<5.5,>=3.10 in /usr/local/lib/python3.9/site-packages (from awscli==1.25.22->latch) (5.4.1)
+
+Requirement already satisfied: colorama<0.4.5,>=0.2.5 in /usr/local/lib/python3.9/site-packages (from awscli==1.25.22->latch) (0.4.4)
+
+Requirement already satisfied: docutils<0.17,>=0.10 in /usr/local/lib/python3.9/site-packages (from awscli==1.25.22->latch) (0.16)
+
+Requirement already satisfied: rsa<4.8,>=3.1.2 in /usr/local/lib/python3.9/site-packages (from awscli==1.25.22->latch) (4.7.2)
+
+Collecting botocore==1.27.22
+
+  Downloading botocore-1.27.22-py3-none-any.whl (8.9 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 1.1 MB/s eta 0:00:00
+
+
+Requirement already satisfied: urllib3<2.0.0,>=1.22 in /usr/local/lib/python3.9/site-packages (from lytekit==0.4.0->latch) (1.26.10)
+
+Collecting natsort>=7.0.1
+
+  Downloading natsort-8.2.0-py3-none-any.whl (37 kB)
+
+Collecting docker-image-py>=0.1.10
+
+  Downloading docker-image-py-0.1.12.tar.gz (8.2 kB)
+
+  Preparing metadata (setup.py): started
+
+  Preparing metadata (setup.py): finished with status 'done'
+
+Collecting cloudpickle>=2.0.0
+
+  Downloading cloudpickle-2.2.0-py3-none-any.whl (25 kB)
+
+Collecting docker>=5.0
+
+  Downloading docker-5.0.3-py2.py3-none-any.whl (146 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.2/146.2 KB 742.4 kB/s eta 0:00:00
+
+
+Collecting sortedcontainers<3.0.0,>=1.5.9
+
+  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+
+Collecting grpcio-status!=1.45.0,>=1.43
+
+  Downloading grpcio_status-1.48.1-py3-none-any.whl (14 kB)
+
+Collecting docstring-parser>=0.9.0
+
+  Downloading docstring_parser-0.15-py3-none-any.whl (36 kB)
+
+Collecting marshmallow-jsonschema>=0.12.0
+
+  Downloading marshmallow_jsonschema-0.13.0-py3-none-any.whl (11 kB)
+
+Collecting responses>=0.10.7
+
+  Downloading responses-0.21.0-py3-none-any.whl (45 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting protobuf<4,>=3.6.1
+
+  Downloading protobuf-3.20.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.0 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 1.1 MB/s eta 0:00:00
+
+
+Collecting statsd<4.0.0,>=3.0.0
+
+  Downloading statsd-3.3.0-py2.py3-none-any.whl (11 kB)
+
+Collecting croniter<4.0.0,>=0.3.20
+
+  Downloading croniter-1.3.7-py2.py3-none-any.whl (17 kB)
+
+Collecting deprecated<2.0,>=1.0
+
+  Downloading Deprecated-1.2.13-py2.py3-none-any.whl (9.6 kB)
+
+Collecting keyring>=18.0.1
+
+  Downloading keyring-23.9.3-py3-none-any.whl (35 kB)
+
+Collecting wrapt<2.0.0,>=1.0.0
+
+  Downloading wrapt-1.14.1-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (77 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.8/77.8 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting jsonschema>=4.5.1
+
+  Downloading jsonschema-4.16.0-py3-none-any.whl (83 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.1/83.1 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting diskcache>=5.2.1
+
+  Downloading diskcache-5.4.0-py3-none-any.whl (44 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.0/45.0 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting pyarrow<7.0.0,>=4.0.0
+
+  Downloading pyarrow-6.0.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25.6 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 25.6/25.6 MB 1.1 MB/s eta 0:00:00
+
+
+Collecting grpcio!=1.45.0,<2.0,>=1.43.0
+
+  Downloading grpcio-1.48.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 1.1 MB/s eta 0:00:00
+
+
+Collecting retry==0.9.2
+
+  Downloading retry-0.9.2-py2.py3-none-any.whl (8.0 kB)
+
+Collecting dataclasses-json>=0.5.2
+
+  Downloading dataclasses_json-0.5.7-py3-none-any.whl (25 kB)
+
+Collecting python-json-logger>=2.0.0
+
+  Downloading python_json_logger-2.0.4-py3-none-any.whl (7.8 kB)
+
+Collecting lyteidl==0.1.0
+
+  Downloading lyteidl-0.1.0-py3-none-any.whl (161 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.4/161.4 KB 1.3 MB/s eta 0:00:00
+
+
+Requirement already satisfied: python-dateutil>=2.1 in /usr/local/lib/python3.9/site-packages (from lytekit==0.4.0->latch) (2.8.2)
+
+Collecting pytimeparse<2.0.0,>=1.1.8
+
+  Downloading pytimeparse-1.1.8-py2.py3-none-any.whl (10.0 kB)
+
+Collecting cookiecutter>=1.7.3
+
+  Downloading cookiecutter-2.1.1-py2.py3-none-any.whl (36 kB)
+
+Collecting pandas<2.0.0,>=1.0.0
+
+  Downloading pandas-1.5.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.2/12.2 MB 1.1 MB/s eta 0:00:00
+
+
+Requirement already satisfied: wheel<1.0.0,>=0.30.0 in /usr/local/lib/python3.9/site-packages (from lytekit==0.4.0->latch) (0.37.1)
+
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /usr/local/lib/python3.9/site-packages (from botocore==1.27.22->awscli==1.25.22->latch) (1.0.1)
+
+Collecting protoc-gen-swagger
+
+  Downloading protoc_gen_swagger-0.1.0-py2.py3-none-any.whl (9.4 kB)
+
+Collecting googleapis-common-protos
+
+  Downloading googleapis_common_protos-1.56.4-py2.py3-none-any.whl (211 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.7/211.7 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting py<2.0.0,>=1.4.26
+
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting decorator>=3.4.2
+
+  Downloading decorator-5.1.1-py3-none-any.whl (9.1 kB)
+
+Collecting boto3>=1.24.22
+
+  Downloading boto3-1.24.77-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.76-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.0 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.75-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.74-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.73-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.72-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.71-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.70-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.69-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.68-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.67-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.66-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.65-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.64-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.63-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.62-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.61-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.0 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.60-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.59-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.58-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.57-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.56-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.55-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.54-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.53-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.52-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.51-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 957.5 kB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.50-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.49-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.0 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.48-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.47-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.46-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.45-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.44-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.43-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.3 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.42-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.41-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.40-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.39-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.38-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.3 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.37-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.36-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.35-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.34-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.33-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.32-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.31-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.30-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.29-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.28-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.27-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 996.0 kB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.25-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.24-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.2 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.23-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+  Downloading boto3-1.24.22-py3-none-any.whl (132 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.5/132.5 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting websocket-client>=0.32.0
+
+  Downloading websocket_client-1.4.1-py3-none-any.whl (55 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 KB 1.3 MB/s eta 0:00:00
+
+
+Collecting google-auth>=1.0.1
+
+  Downloading google_auth-2.11.1-py2.py3-none-any.whl (167 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 167.1/167.1 KB 1.0 MB/s eta 0:00:00
+
+
+Collecting requests-oauthlib
+
+  Downloading requests_oauthlib-1.3.1-py2.py3-none-any.whl (23 kB)
+
+Collecting certifi>=14.05.14
+
+  Downloading certifi-2022.9.14-py3-none-any.whl (162 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 KB 965.7 kB/s eta 0:00:00
+
+
+Collecting pynacl>=1.0.1
+
+  Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (856 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 856.7/856.7 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting cryptography>=2.5
+
+  Downloading cryptography-38.0.1-cp36-abi3-manylinux_2_28_x86_64.whl (4.2 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 1.1 MB/s eta 0:00:00
+
+
+Collecting bcrypt>=3.1.3
+
+  Downloading bcrypt-4.0.0-cp36-abi3-manylinux_2_28_x86_64.whl (594 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.4/594.4 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting idna<4,>=2.5
+
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting charset-normalizer<3,>=2
+
+  Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+
+Collecting jinja2-time>=0.2.0
+
+  Downloading jinja2_time-0.2.0-py2.py3-none-any.whl (6.4 kB)
+
+Collecting python-slugify>=4.0.0
+
+  Downloading python_slugify-6.1.2-py2.py3-none-any.whl (9.4 kB)
+
+Collecting Jinja2<4.0.0,>=2.7
+
+  Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 KB 1.0 MB/s eta 0:00:00
+
+
+Collecting binaryornot>=0.4.4
+
+  Downloading binaryornot-0.4.4-py2.py3-none-any.whl (9.0 kB)
+
+Collecting cffi>=1.12
+
+  Downloading cffi-1.15.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (441 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 441.2/441.2 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting typing-inspect>=0.4.0
+
+  Downloading typing_inspect-0.8.0-py3-none-any.whl (8.7 kB)
+
+Collecting marshmallow-enum<2.0.0,>=1.5.1
+
+  Downloading marshmallow_enum-1.5.1-py2.py3-none-any.whl (4.2 kB)
+
+Collecting marshmallow<4.0.0,>=3.3.0
+
+  Downloading marshmallow-3.18.0-py3-none-any.whl (48 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.8/48.8 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting regex>=2019.4.14
+
+  Downloading regex-2022.9.13-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (769 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 770.0/770.0 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting cachetools<6.0,>=2.0.0
+
+  Downloading cachetools-5.2.0-py3-none-any.whl (9.3 kB)
+
+Collecting pyasn1-modules>=0.2.1
+
+  Downloading pyasn1_modules-0.2.8-py2.py3-none-any.whl (155 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting attrs>=17.4.0
+
+  Downloading attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 KB 1.3 MB/s eta 0:00:00
+
+
+Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
+
+  Downloading pyrsistent-0.18.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (115 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.6/115.6 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting SecretStorage>=3.2
+
+  Downloading SecretStorage-3.3.3-py3-none-any.whl (15 kB)
+
+Collecting importlib-metadata>=3.6
+
+  Downloading importlib_metadata-4.12.0-py3-none-any.whl (21 kB)
+
+Collecting jaraco.classes
+
+  Downloading jaraco.classes-3.2.2-py3-none-any.whl (6.0 kB)
+
+Collecting jeepney>=0.4.2
+
+  Downloading jeepney-0.8.0-py3-none-any.whl (48 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.4/48.4 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting numpy>=1.20.3
+
+  Downloading numpy-1.23.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.1/17.1 MB 1.1 MB/s eta 0:00:00
+
+
+Requirement already satisfied: pyasn1>=0.1.3 in /usr/local/lib/python3.9/site-packages (from rsa<4.8,>=3.1.2->awscli==1.25.22->latch) (0.4.8)
+
+Collecting pytz-deprecation-shim
+
+  Downloading pytz_deprecation_shim-0.1.0.post0-py2.py3-none-any.whl (15 kB)
+
+Collecting oauthlib>=3.0.0
+
+  Downloading oauthlib-3.2.1-py3-none-any.whl (151 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.7/151.7 KB 903.2 kB/s eta 0:00:00
+
+
+Collecting chardet>=3.0.2
+
+  Downloading chardet-5.0.0-py3-none-any.whl (193 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.6/193.6 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting pycparser
+
+  Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.7/118.7 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting zipp>=0.5
+
+  Downloading zipp-3.8.1-py3-none-any.whl (5.6 kB)
+
+Collecting MarkupSafe>=2.0
+
+  Downloading MarkupSafe-2.1.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+
+Collecting arrow
+
+  Downloading arrow-1.2.3-py3-none-any.whl (66 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting packaging>=17.0
+
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 KB 1.2 MB/s eta 0:00:00
+
+
+Collecting text-unidecode>=1.3
+
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.2/78.2 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting mypy-extensions>=0.3.0
+
+  Downloading mypy_extensions-0.4.3-py2.py3-none-any.whl (4.5 kB)
+
+Collecting more-itertools
+
+  Downloading more_itertools-8.14.0-py3-none-any.whl (52 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 52.2/52.2 KB 1.3 MB/s eta 0:00:00
+
+
+Collecting tzdata
+
+  Downloading tzdata-2022.2-py2.py3-none-any.whl (336 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 336.4/336.4 KB 1.1 MB/s eta 0:00:00
+
+
+Collecting pyparsing!=3.0.5,>=2.0.2
+
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 KB 1.0 MB/s eta 0:00:00
+
+
+Building wheels for collected packages: docker-image-py
+
+  Building wheel for docker-image-py (setup.py): started
+
+  Building wheel for docker-image-py (setup.py): finished with status 'done'
+
+  Created wheel for docker-image-py: filename=docker_image_py-0.1.12-py3-none-any.whl size=8836 sha256=47837995782452719f685a842b4640e73bc059a18a13b1612281ccd3445c80c3
+
+  Stored in directory: /root/.cache/pip/wheels/32/35/e8/11eecb60c93baea12949e2257f87301a4365c48291d612632b
+
+Successfully built docker-image-py
+
+Installing collected packages: text-unidecode, statsd, sortedcontainers, pytz, pytimeparse, mypy-extensions, zipp, wrapt, websocket-client, tzdata, typing-extensions, tqdm, regex, python-slugify, python-json-logger, pyrsistent, pyparsing, pyjwt, pycparser, pyasn1-modules, py, protobuf, oauthlib, numpy, natsort, more-itertools, MarkupSafe, jeepney, idna, grpcio, docstring-parser, diskcache, decorator, cloudpickle, click, charset-normalizer, chardet, certifi, cachetools, bcrypt, attrs, typing-inspect, retry, requests, pytz-deprecation-shim, pyarrow, protoc-gen-swagger, pandas, packaging, jsonschema, Jinja2, jaraco.classes, importlib-metadata, googleapis-common-protos, google-auth, docker-image-py, deprecated, croniter, cffi, botocore, binaryornot, arrow, tzlocal, responses, requests-oauthlib, pynacl, marshmallow, lyteidl, jinja2-time, grpcio-status, docker, cryptography, SecretStorage, paramiko, marshmallow-jsonschema, marshmallow-enum, kubernetes, cookiecutter, boto3, awscli, apscheduler, scp, keyring, dataclasses-json, lytekit, lytekitplugins-pods, latch
+
+  Attempting uninstall: botocore
+
+    Found existing installation: botocore 1.27.26
+
+    Uninstalling botocore-1.27.26:
+
+      Successfully uninstalled botocore-1.27.26
+
+  Attempting uninstall: boto3
+
+    Found existing installation: boto3 1.24.26
+
+    Uninstalling boto3-1.24.26:
+
+      Successfully uninstalled boto3-1.24.26
+
+  Attempting uninstall: awscli
+
+    Found existing installation: awscli 1.25.26
+
+    Uninstalling awscli-1.25.26:
+
+      Successfully uninstalled awscli-1.25.26
+
+Successfully installed Jinja2-3.1.2 MarkupSafe-2.1.1 SecretStorage-3.3.3 apscheduler-3.9.1 arrow-1.2.3 attrs-22.1.0 awscli-1.25.22 bcrypt-4.0.0 binaryornot-0.4.4 boto3-1.24.22 botocore-1.27.22 cachetools-5.2.0 certifi-2022.9.14 cffi-1.15.1 chardet-5.0.0 charset-normalizer-2.1.1 click-8.1.3 cloudpickle-2.2.0 cookiecutter-2.1.1 croniter-1.3.7 cryptography-38.0.1 dataclasses-json-0.5.7 decorator-5.1.1 deprecated-1.2.13 diskcache-5.4.0 docker-5.0.3 docker-image-py-0.1.12 docstring-parser-0.15 google-auth-2.11.1 googleapis-common-protos-1.56.4 grpcio-1.48.1 grpcio-status-1.48.1 idna-3.4 importlib-metadata-4.12.0 jaraco.classes-3.2.2 jeepney-0.8.0 jinja2-time-0.2.0 jsonschema-4.16.0 keyring-23.9.3 kubernetes-24.2.0 latch-2.1.1 lyteidl-0.1.0 lytekit-0.4.0 lytekitplugins-pods-0.3.1 marshmallow-3.18.0 marshmallow-enum-1.5.1 marshmallow-jsonschema-0.13.0 more-itertools-8.14.0 mypy-extensions-0.4.3 natsort-8.2.0 numpy-1.23.3 oauthlib-3.2.1 packaging-21.3 pandas-1.5.0 paramiko-2.11.0 protobuf-3.20.2 protoc-gen-swagger-0.1.0 py-1.11.0 pyarrow-6.0.1 pyasn1-modules-0.2.8 pycparser-2.21 pyjwt-2.5.0 pynacl-1.5.0 pyparsing-3.0.9 pyrsistent-0.18.1 python-json-logger-2.0.4 python-slugify-6.1.2 pytimeparse-1.1.8 pytz-2022.2.1 pytz-deprecation-shim-0.1.0.post0 regex-2022.9.13 requests-2.28.1 requests-oauthlib-1.3.1 responses-0.21.0 retry-0.9.2 scp-0.14.4 sortedcontainers-2.4.0 statsd-3.3.0 text-unidecode-1.3 tqdm-4.64.1 typing-extensions-4.3.0 typing-inspect-0.8.0 tzdata-2022.2 tzlocal-4.2 websocket-client-1.4.1 wrapt-1.14.1 zipp-3.8.1
+
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0m
+[91mWARNING: You are using pip version 22.0.4; however, version 22.2.2 is available.
+You should consider upgrading via the '/usr/local/bin/python3 -m pip install --upgrade pip' command.
+[0m
+ ---> e9fd042bec32
+
+Step 3/6 : COPY wf /root/wf
+
+
+ ---> 54cd2ed814fb
+
+Step 4/6 : ARG tag
+
+
+ ---> [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+ ---> Running in 1568419b6ec6
+
+ ---> b792ea668d6c
+
+Step 5/6 : ENV FLYTE_INTERNAL_IMAGE $tag
+
+
+ ---> [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+ ---> Running in 818c001e26e4
+
+ ---> 56bc7569527d
+
+Step 6/6 : WORKDIR /root
+
+
+ ---> [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+ ---> Running in e5bd7b26b9b7
+
+ ---> 2ade19cc91e8
+
+Successfully built 2ade19cc91e8
+
+Successfully tagged 812206152185.dkr.ecr.us-west-2.amazonaws.com/3701_3dmol:0.0.0-7b0bb7
+
