@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <head>
-<script src="https://3Dmol.org/build/3Dmol-min.js" async></script>     
+  <script src="https://3Dmol.org/build/3Dmol-min.js" async></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-         <div data-ui="true" style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-pdb='1YCR' 
-         data-select1='chain:A' data-style1='cartoon:color=spectrum' data-surface1='opacity:.7;color:white' data-select2='chain:B' data-style2='stick'></div>          
-<div>Generated link</div>
-        </body>
+<body>        
+  <div class="container text-center my-12 max-w-7xl mx-auto px-12">
+        <h1 class="font-sans font-extrabold my-8 text-3xl">1YCR</h1>
+        <div class="h-144">
+        <div
+        data-pdb="1YCR"
+        style="height:100%; width:100%; position: relative"
+        class="viewer_3Dmoljs"
+        data-select-a="chain:A"
+        data-style-a="cartoon;stick:radius~0.1"
+        data-surface-a="opacity:0.8;colorscheme:whiteCarbon"
+        data-select-b="chain:B"
+        data-style-b="cartoon;line"
+        data-select-resi="resi:19,23,26;chain:B"
+        data-style-resi="stick"
+        data-labelres-resi="labelres=backgroundOpacity:0.8;fontSize:14"
+        data-spin='axis:x;speed:0.2'
+        data-backgroundcolor="#ffffff"
+        ></div>
+      </div>
+    </div>
+    https://3Dmol.org/viewer.html?pdb=1YCR&select=chain:A&style=cartoon;stick:radius~0.1&surface=opacity:0.8;colorscheme:whiteCarbon&select=chain:B&style=cartoon;line&select=resi:19,23,26;chain:B&style=stick&labelres=backgroundOpacity:0.8;fontSize:14
+
+  <!-- style="height: 400px; width: 400px; position: relative;" -->
+  <div>Generated link</div>
+</body>
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400;700;800&display=swap');
+        body{
+          font-family: 'Inter', sans-serif;
+        }
+        .h-144{
+          height: 36rem;
+        }
+        </style>
+        

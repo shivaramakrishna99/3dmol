@@ -1,0 +1,49 @@
+Step 1/7 : FROM 812206152185.dkr.ecr.us-west-2.amazonaws.com/latch-base:6839-main
+
+
+ ---> 12b193ffea17
+
+Step 2/7 : RUN python3 -m pip install py3Dmol
+
+
+ ---> Using cache
+
+ ---> fb69c3bb23e1
+
+Step 3/7 : RUN python3 -m pip install --upgrade latch
+
+
+ ---> Using cache
+
+ ---> 4a5254d8f698
+
+Step 4/7 : COPY wf /root/wf
+
+
+ ---> 2726ff18bf04
+
+Step 5/7 : ARG tag
+
+
+ ---> Running in ccbaa13604b5
+
+ ---> c3f333a45fe7
+
+Step 6/7 : ENV FLYTE_INTERNAL_IMAGE $tag
+
+
+ ---> Running in 3f02d43b40f5
+
+ ---> a34c04d50540
+
+Step 7/7 : WORKDIR /root
+
+
+ ---> Running in 0b36b1cd4e13
+
+ ---> 2316b9b7e505
+
+Successfully built 2316b9b7e505
+
+Successfully tagged 812206152185.dkr.ecr.us-west-2.amazonaws.com/3701_3dmol:0.1.1
+
